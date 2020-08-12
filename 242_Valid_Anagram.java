@@ -1,4 +1,8 @@
 // target to bring them in a same form and shape and compare using java inbuilt function 
+// Runtime: 2 ms, faster than 97.45% of Java online submissions for Valid Anagram.
+// Memory Usage: 39.8 MB, less than 66.53% of Java online submissions for Valid Anagram.
+
+
 
 class Solution {
     public boolean isAnagram(String s, String t) {
