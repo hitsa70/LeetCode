@@ -1,0 +1,42 @@
+/*Runtime: 0 ms, faster than 100.00% of Java online submissions for Plus One.
+Memory Usage: 38 MB, less than 71.26% of Java online submissions for Plus One.*/
+
+class Solution {
+    public int[] plusOne(int[] digits) {
+
+        int len=digits.length-1;
+       
+        
+        int temp=0;
+   while(len>=0){
+       
+       if(len==digits.length-1)
+           digits[len]+=1;
+       
+       digits[len]=digits[len]+temp;
+       temp=0;
+       
+       if(digits[len]>9)
+       {
+           temp=digits[len]/10;
+           digits[len]=digits[len]%10;
+       }else
+           break;
+       
+       len--;
+   }
+    
+    if(temp!=0)
+    {
+        int[] arr= new int[digits.length+1];
+        arr[0]=temp;
+        for(int k=1;k<digits.length;k++)
+            arr[k]=digits[k];
+        
+        return arr;
+    }
+      
+  
+        return digits;
+    }
+}
