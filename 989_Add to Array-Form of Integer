@@ -1,0 +1,39 @@
+/*Runtime: 4 ms, faster than 77.45% of Java online submissions for Add to Array-Form of Integer.
+Memory Usage: 40.4 MB, less than 95.44% of Java online submissions for Add to Array-Form of Integer.*/
+
+
+
+class Solution {
+    public List<Integer> addToArrayForm(int[] A, int k) {
+       List arr = new ArrayList();
+        int len=A.length-1;
+        int carry=0;
+        
+        while(len>=0)
+        {int temp=k%10+A[len]+carry;
+          
+         arr.add(temp%10);
+         carry=temp/10;
+            
+         len--;
+         k=k/10;
+        }
+        
+        
+        while(k!=0)
+        {int temp=k%10+carry;
+            arr.add(temp%10);
+         carry=temp/10;
+         k/=10;
+        }
+        
+        
+        if(carry!=0)
+        {arr.add(carry);
+        }
+        
+        Collections.reverse(arr);
+        
+        return arr;
+    }
+}
