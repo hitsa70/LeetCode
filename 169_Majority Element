@@ -1,0 +1,27 @@
+/*Runtime: 9 ms, faster than 42.68% of Java online submissions for Majority Element.
+Memory Usage: 44.5 MB, less than 59.95% of Java online submissions for Majority Element.*/
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        HashMap<Integer,Integer> hitesh = new HashMap<>();
+        int len=nums.length/2,maj=0;
+        for(int i:nums){
+            if(hitesh.containsKey(i))
+                hitesh.put(i,hitesh.get(i)+1);
+            else
+                hitesh.put(i,1);
+        }
+        
+        for(int i : hitesh.keySet())
+        {
+            if(hitesh.get(i)>len){
+                maj=i;
+                break;
+            }
+            
+        }
+        
+        return maj;
+    }
+}
