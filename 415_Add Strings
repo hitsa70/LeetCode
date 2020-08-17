@@ -1,0 +1,25 @@
+/*
+415. Add Strings
+Runtime: 9 ms, faster than 16.45% of Java online submissions for Add Strings.
+Memory Usage: 39.9 MB, less than 46.12% of Java online submissions for Add Strings.*/
+
+class Solution {
+    public String addStrings(String num1, String num2) {
+         String fs ="";
+          int i=num1.length()-1 , j=num2.length()-1,sum=0;
+        
+        while(i>=0 || j>=0 || sum>=1)
+        {
+            sum+=((i>=0)?num1.charAt(i)-'0': 0);
+            sum+=((j>=0)?num2.charAt(j)-'0': 0);
+            fs=(char)(sum%10+'0')+fs;
+            sum/=10;
+            
+            i--;j--;
+            
+        }
+        
+        return fs;
+    
+    }
+}
