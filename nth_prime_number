@@ -12,16 +12,16 @@ import java.util.*;
 class GFG {
     
     public static int countPrimes(int n) {
-        boolean[] notPrime = new boolean[10000];
+        boolean[] notPrime = new boolean[10000000];
         int count = 0;
-        for (int i = 2; i < 10000; i++) {
+        for (int i = 2; i < 10000000; i++) {
            
-                for (int j = 2; i*j < 10000; j++) {
+                for (int j = 2; i*j < 10000000; j++) {
                     notPrime[i*j] = true;
                 }
             }
             
-        for (int i = 2; i < 10000; i++) {
+        for (int i = 2; i < 10000000; i++) {
             if(notPrime[i] == false) 
                  n--;
             if(n==0)
