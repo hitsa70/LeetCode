@@ -1,0 +1,33 @@
+/*Runtime: 5 ms, faster than 27.72% of Java online submissions for Add Binary.
+Memory Usage: 40 MB, less than 27.75% of Java online submissions for Add Binary.*/
+
+
+class Solution {
+    public String addBinary(String a, String b) {
+    if((a.charAt(0)-'0')==0)
+        return b;
+    else if((b.charAt(0)-'0')==0)
+        return a;
+    
+    String fs ="";
+     int i=a.length()-1 , j=b.length()-1,sum=0;
+        
+        while(i>=0 || j>=0 || sum==1)
+        {
+            sum+=((i>=0)?a.charAt(i)-'0': 0);
+            sum+=((j>=0)?b.charAt(j)-'0': 0);
+            fs=(char)(sum%2+'0')+fs;
+            sum/=2;
+            
+            i--;j--;
+            
+        }
+        
+        
+    
+        
+    
+    return fs;
+        
+    }
+}
