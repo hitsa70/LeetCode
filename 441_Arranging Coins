@@ -1,0 +1,25 @@
+
+
+
+
+/*Using recursion
+Runtime: 58 ms, faster than 5.02% of Java online submissions for Arranging Coins.
+Memory Usage: 41.1 MB, less than 5.04% of Java online submissions for Arranging Coins.*/
+
+class Solution {
+    public int arrangeCoins(int n) {
+      if(n==0)
+          return 0;
+        return helper(n,1,0); 
+    }
+    
+    public int helper(int n,int c,int count) {
+                if(n<0)
+                    return count-1;
+                if(n==0)
+                    return count;
+        
+        return helper(n-c,c+1,count+1);
+        
+    }
+}
