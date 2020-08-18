@@ -2,9 +2,36 @@
 
 
 
+/*using for loop
+Runtime: 8 ms, faster than 28.90% of Java online submissions for Arranging Coins.
+Memory Usage: 36.5 MB, less than 95.78% of Java online submissions for Arranging Coins.
+
+class Solution {
+    public int arrangeCoins(int n) {
+        if(n==0)
+            return 0;
+        
+        int temp=n/2;
+        temp++;
+     for(int i=1;i<=temp;i++){
+         n=n-i;
+         if(n<0)
+             return i-1;
+         if(n==0)
+             return i;
+     }  
+        return 0;
+        
+    }
+   
+}
+*/
+
+
+
 /*Using recursion
 Runtime: 58 ms, faster than 5.02% of Java online submissions for Arranging Coins.
-Memory Usage: 41.1 MB, less than 5.04% of Java online submissions for Arranging Coins.*/
+Memory Usage: 41.1 MB, less than 5.04% of Java online submissions for Arranging Coins.
 
 class Solution {
     public int arrangeCoins(int n) {
@@ -23,3 +50,4 @@ class Solution {
         
     }
 }
+*/
