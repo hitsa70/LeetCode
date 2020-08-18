@@ -1,0 +1,24 @@
+/*455. Assign Cookies
+Runtime: 70 ms, faster than 6.66% of Java online submissions for Assign Cookies.
+Memory Usage: 40 MB, less than 93.35% of Java online submissions for Assign Cookies.*/
+
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+      
+        Arrays.sort(g);
+        Arrays.sort(s);
+        
+        
+   int count=0;
+    for(int i:g)
+        for(int j=0;j<=s.length-1;j++){
+            if(i<=s[j]){
+            count++;
+            s[j]=Integer.MIN_VALUE;
+            break;
+            }
+        }
+    
+        return count;
+    }
+}
