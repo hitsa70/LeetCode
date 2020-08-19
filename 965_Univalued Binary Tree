@@ -1,0 +1,24 @@
+/*965. Univalued Binary Tree
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Univalued Binary Tree.
+Memory Usage: 39.6 MB, less than 5.06% of Java online submissions for Univalued Binary Tree.
+ */
+class Solution {
+    public boolean isUnivalTree(TreeNode root) {
+        return helper(root,root.val);
+    }
+    
+     public boolean helper(TreeNode root,int val) {
+        if(root.val!=val)
+            return false;
+         
+         boolean a=true;
+         
+         if(root.left!=null && a)         
+         a=helper(root.left,val);
+         if(root.right!=null && a)         
+         a=helper(root.right,val);
+         
+         return a;
+    }
+    
+}
