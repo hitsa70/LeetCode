@@ -1,0 +1,28 @@
+/*1491. Average Salary Excluding the Minimum and Maximum Salary
+
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Average Salary Excluding the Minimum and Maximum Salary.
+Memory Usage: 37.5 MB, less than 45.42% of Java online submissions for Average Salary Excluding the Minimum and Maximum Salary.
+*/
+
+class Solution {
+    public double average(int[] salary) {
+        int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+        double avg=0;
+        
+        for (int i:salary)
+        {
+            if(i<min)
+                min=i;
+            if(i>max)
+                max=i;
+            
+            avg+=i;
+        }
+        
+        avg=avg-(double)(min+max);
+        
+        return avg/(salary.length-2);
+        
+        
+    }
+}
