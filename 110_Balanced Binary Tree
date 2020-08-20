@@ -1,0 +1,33 @@
+/*
+110. Balanced Binary Tree
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Balanced Binary Tree.
+Memory Usage: 40 MB, less than 42.82% of Java online submissions for Balanced Binary Tree.
+ */
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        
+    return helper(root)!=null;
+    }
+    
+    
+    public Integer helper(TreeNode root)
+    {
+        if(root==null)
+            return 0;
+        
+        Integer left=helper(root.left);
+        Integer right=helper(root.right);
+        
+        if(left==null || right == null)
+            return null;
+        
+        if(Math.abs(left-right)>1)
+            return null;
+        
+        
+        return 1+Math.max(left,right);
+        
+        
+    }
+    
+}
