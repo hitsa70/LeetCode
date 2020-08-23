@@ -1,0 +1,16 @@
+/*404_Sum of Left Leaves
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Sum of Left Leaves.
+Memory Usage: 39.2 MB, less than 28.40% of Java online submissions for Sum of Left Leaves.
+ */
+class Solution {
+    int sum=0;
+    public int sumOfLeftLeaves(TreeNode root) {
+        if(root==null )
+            return 0;
+        if(root.left!=null && root.left.left==null &&root.left.right==null)
+            sum+=root.left.val;
+        sumOfLeftLeaves(root.left);
+        sumOfLeftLeaves(root.right);    
+        return sum;
+    }
+}
