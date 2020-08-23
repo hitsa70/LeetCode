@@ -1,0 +1,40 @@
+/*203_Remove Linked List Elements
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Remove Linked List Elements.
+Memory Usage: 41 MB, less than 50.51% of Java online submissions for Remove Linked List Elements.
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+       if(head==null)
+           return null;
+        
+        
+        while(head!=null&& head.val==val ){
+            
+           head=head.next;}
+        if(head==null)
+                return null;
+        
+        ListNode prev=null;
+        ListNode temp=head;
+        while(head!=null)
+        {   
+            if(head.val==val){
+                
+                while(head.next!=null && head.val==val)
+                    head=head.next;
+                
+                if(head.next==null && head.val==val)
+                {prev.next=null;
+                break;}
+                
+                prev.next=head;
+                
+            }
+            
+            prev=head;
+            head=head.next;
+        }
+        
+        return temp;
+    }
+}
