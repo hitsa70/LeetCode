@@ -1,0 +1,24 @@
+/*
+83_Remove Duplicates from Sorted List
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Remove Duplicates from Sorted List.
+Memory Usage: 39.1 MB, less than 67.06% of Java online submissions for Remove Duplicates from Sorted List.
+
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+    if(head==null)
+        return null;
+    ListNode temp= head;    
+    while(head!=null)
+    {   ListNode prev=head;
+      
+          while(head.next!=null && head.val==head.next.val)
+              head=head.next;
+      prev.next=head.next;
+     head=head.next;
+        
+    }
+    
+    return temp;
+    }
+}
