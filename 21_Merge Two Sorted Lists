@@ -1,0 +1,62 @@
+/*
+21. Merge Two Sorted Lists
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Merge Two Sorted Lists.
+Memory Usage: 39.1 MB, less than 70.60% of Java online submissions for Merge Two Sorted Lists.
+
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        
+        //edge case 1
+        if(l1==null && l2==null)
+            return null;
+        
+        //edge case 2
+        if(l1==null)
+            return l2;      
+        if(l2==null)
+            return l1;
+        
+        //creating a new linkedList to save result
+        ListNode output=new ListNode(0) ;
+            ListNode temp=output;
+        
+        //comparing and adding nodes to the our output list
+        while(l1!=null && l2!=null)
+        {
+            if(l1.val<=l2.val)
+            {
+                output.next=l1;
+                
+                l1=l1.next;
+            }else{
+                output.next=l2;
+                
+                l2=l2.next;
+            }
+          
+            output=output.next;
+        }
+        
+        
+        //adding any leftout nodes
+        while(l1!=null)
+        {
+            output.next=l1;
+            l1=l1.next;
+            output=output.next;
+        }
+        
+        while(l2!=null)
+        {
+            output.next=l2;
+            l2=l2.next;
+            output=output.next;
+        }
+        
+        //returning our output
+        return temp.next;
+        
+        
+    }
+}
