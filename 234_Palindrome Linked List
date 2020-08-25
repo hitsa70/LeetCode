@@ -1,0 +1,50 @@
+/*
+234. Palindrome Linked List
+Runtime: 1 ms, faster than 97.70% of Java online submissions for Palindrome Linked List.
+Memory Usage: 42 MB, less than 83.84% of Java online submissions for Palindrome Linked List.
+
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+        
+        while(fast!=null && fast.next!=null)
+        {
+            fast=fast.next.next;
+            slow=slow.next;
+            
+        }
+        
+         if (fast != null) { // odd nodes: let right half smaller
+        slow = slow.next;
+        }
+        
+        slow=reverse(slow);
+        fast=head;
+        
+        while(slow!=null)
+        {
+            if(slow.val!=fast.val)
+                return false;
+            
+            slow=slow.next;
+            fast=fast.next;
+        }
+        
+        return true;
+    }
+    
+    public ListNode reverse(ListNode slow)
+    {   ListNode prev=null;
+        while(slow!=null)
+        {
+            ListNode next=slow.next;
+            slow.next=prev;
+            prev=slow;
+            slow=next;
+        }
+     
+     return prev;
+    }
+}
