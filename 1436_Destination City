@@ -1,0 +1,28 @@
+/*  1436_Destination City
+Runtime: 1 ms, faster than 100.00% of Java online submissions for Destination City.
+Memory Usage: 39.1 MB, less than 75.02% of Java online submissions for Destination City.
+*/
+
+
+class Solution {
+    public String destCity(List<List<String>> paths) {
+      if(paths==null || paths.size()==0)
+          return "";
+
+        HashMap<String, String> map = new HashMap<>();
+        
+        for(List<String> path : paths)
+        {
+            map.put(path.get(0), path.get(1));
+        }
+        
+        for(String city : map.values())
+        {
+            if(!map.containsKey(city)) {
+                return city;
+            }
+        }
+        
+        return "";
+    }
+}
