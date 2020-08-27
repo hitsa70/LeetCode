@@ -1,0 +1,18 @@
+/*  217. Contains Duplicate
+Runtime: 3 ms, faster than 99.72% of Java online submissions for Contains Duplicate.
+Memory Usage: 43.8 MB, less than 84.06% of Java online submissions for Contains Duplicate.*/
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        
+        for(int i = 0; i < nums.length-1; i++)
+        {
+             if (nums[i] == nums[i + 1]) return true;
+        }
+            
+        
+        return false;
+            
+    }
+}
