@@ -1,0 +1,23 @@
+/*1431. Kids With the Greatest Number of Candies
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Kids With the Greatest Number of Candies.
+Memory Usage: 39.4 MB, less than 87.99% of Java online submissions for Kids With the Greatest Number of Candies.
+*/
+
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+       List<Boolean> answer= new ArrayList<>();
+        int greatest =Integer.MIN_VALUE;
+        
+        for(int i:candies)
+            if(i>greatest)
+                greatest=i;
+        
+        for(int i:candies)
+        {if(i+extraCandies >= greatest)
+            answer.add(true);
+         else answer.add(false);
+         }
+        
+        return answer;
+    }
+}
