@@ -1,0 +1,28 @@
+/*1313. Decompress Run-Length Encoded List
+Runtime: 1 ms, faster than 95.36% of Java online submissions for Decompress Run-Length Encoded List.
+Memory Usage: 40.1 MB, less than 73.10% of Java online submissions for Decompress Run-Length Encoded List.*/
+
+
+class Solution {
+    public int[] decompressRLElist(int[] nums) {
+        
+        int sum=0;
+        for(int i=0;i<nums.length;i++)
+            if(i%2==0)
+                sum+=nums[i];
+        
+        int[] result = new int[sum];
+        int j=0;
+        for(int i=0;i<nums.length;i=i+2)
+        {
+            for(int k=0;k<nums[i];k++)
+            {result[j]=nums[i+1];
+             j++;                
+            }
+        }
+        
+        
+        return result;
+        
+    }
+}
