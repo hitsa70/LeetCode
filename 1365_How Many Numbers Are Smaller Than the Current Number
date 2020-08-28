@@ -1,0 +1,56 @@
+/*1365. How Many Numbers Are Smaller Than the Current Number
+
+Runtime: 1 ms, faster than 99.55% of Java online submissions for How Many Numbers Are Smaller Than the Current Number.
+Memory Usage: 40.2 MB, less than 37.31% of Java online submissions for How Many Numbers Are Smaller Than the Current Number.*/
+
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+       int[] count = new int[101];
+        int[] res = new int[nums.length];
+        
+        for (int i:nums) {
+            count[i]++;
+        }
+        
+        for (int i = 1 ; i <= 100; i++) {
+            count[i] += count[i-1];    
+        }
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0)
+                res[i] = 0;
+            else 
+                res[i] = count[nums[i] - 1];
+        }
+        
+        return res;
+    }
+}
+
+
+
+
+/*
+
+
+Runtime: 17 ms, faster than 20.90% of Java online submissions for How Many Numbers Are Smaller Than the Current Number.
+Memory Usage: 39.8 MB, less than 56.58% of Java online submissions for How Many Numbers Are Smaller Than the Current Number.
+
+
+
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        ArrayList<Integer> arr= new ArrayList<>();
+        for(int i:nums)
+            arr.add(i);
+        Collections.sort(arr);
+        
+        for(int i=0;i<nums.length;i++)
+            nums[i]=arr.indexOf(nums[i]);
+        
+        return nums;
+    }
+}
+
+
+*/
