@@ -1,7 +1,52 @@
 /*1502. Can Make Arithmetic Progression From Sequence
+Runtime: 1 ms, faster than 96.36% of Java online submissions for Can Make Arithmetic Progression From Sequence.
+Memory Usage: 38.9 MB, less than 85.33% of Java online submissions for Can Make Arithmetic Progression From Sequence.
+*/
+
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+      int len= arr.length;
+        if(len<2)
+          return true;
+        
+       int min=Integer.MAX_VALUE, max=Integer.MIN_VALUE;
+        Set<Integer> li= new HashSet();
+        
+        
+        for(int i:arr)
+        {
+            min=Math.min(min,i);
+            max=Math.max(max,i);
+            li.add(i);    
+        }
+        
+        int d=max-min;
+        if(d%(len -1)!=0)
+            return false;
+        
+        d=d/(len-1);
+        
+        
+        
+        for(int i=0;i<len-1;i++)        
+        {if(li.contains(min+d))
+            min=min+d;
+            else 
+                return false;
+            
+         }
+            
+        return true;
+    }
+}
+
+
+
+
+/*
 
 Runtime: 1 ms, faster than 96.36% of Java online submissions for Can Make Arithmetic Progression From Sequence.
-Memory Usage: 39.2 MB, less than 57.01% of Java online submissions for Can Make Arithmetic Progression From Sequence.*/
+Memory Usage: 39.2 MB, less than 57.01% of Java online submissions for Can Make Arithmetic Progression From Sequence.
 
 class Solution {
     public boolean canMakeArithmeticProgression(int[] arr) {
@@ -20,3 +65,4 @@ class Solution {
         return true;
     }
 }
+*/
