@@ -1,0 +1,21 @@
+/*
+617. Merge Two Binary Trees
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Merge Two Binary Trees.
+Memory Usage: 38.9 MB, less than 99.50% of Java online submissions for Merge Two Binary Trees.
+ */
+class Solution {
+    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+        
+        if(t1==null) return t2;
+        if(t2==null) return t1;
+        
+        TreeNode t3= new TreeNode(t1.val+t2.val);
+        
+        t3.left=mergeTrees(t1.left,t2.left);
+        
+        t3.right=mergeTrees(t1.right,t2.right);
+        
+        return t3;
+        
+    }
+}
