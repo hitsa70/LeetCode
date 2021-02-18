@@ -1,0 +1,31 @@
+/*
+674. Longest Continuous Increasing Subsequence
+Runtime: 1 ms, faster than 98.18% of Java online submissions for Longest Continuous Increasing Subsequence.
+Memory Usage: 39.6 MB, less than 69.90% of Java online submissions for Longest Continuous Increasing Subsequence.*/
+
+class Solution {
+    public int findLengthOfLCIS(int[] nums) 
+    {
+        int len=nums.length;
+        int lis=0,count=0;
+        
+        if(len==0)
+            return 0;
+        
+        if(len==1)
+            return 1;
+        
+        for(int i=0;i<len-1;i++)
+        {    if(nums[i+1]>nums[i])
+            {   count++;
+                lis=Math.max(lis,count);
+            }
+            else
+                count=0;
+        }
+        
+        return lis+1;
+        
+        
+    }
+}
