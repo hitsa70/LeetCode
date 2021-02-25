@@ -1,0 +1,77 @@
+/** 1019. Next Greater Node In Linked List
+Runtime: 14 ms, faster than 75.20% of Java online submissions for Next Greater Node In Linked List.
+Memory Usage: 43.5 MB, less than 47.19% of Java online submissions for Next Greater Node In Linked List.
+ */
+class Solution {
+        public int[] nextLargerNodes(ListNode head) {
+        ArrayList<Integer> A = new ArrayList<>();
+            
+        for (ListNode node = head; node != null; node = node.next)
+            A.add(node.val);
+            
+        int[] res = new int[A.size()];
+            
+        Stack<Integer> stack = new Stack<>();
+            
+        for (int i = 0; i < A.size(); i++) 
+        {
+            while (  !stack.isEmpty()   &&   A.get(stack.peek()) < A.get(i)   )
+                res[stack.pop()] = A.get(i);
+            
+            stack.push(i);
+        }
+        return res;
+    }
+}
+
+
+//     public int[] nextLargerNodes(ListNode head) {
+        
+//         int count=0;
+//         ListNode pun=head;
+//         ListNode res=head;
+        
+        
+//         while(pun!=null)
+//         {
+//             pun=pun.next;
+//             count++;
+//         }
+        
+        
+//         int[] arr=new int[count];
+        
+//         for(int i=0;i<count;i++)
+//         {   
+//             int max=Integer.MIN_VALUE;
+//             pun=head;
+//             int pos=i+1;
+         
+//                 while(pos>0 ){
+//                         if(pun.next==null)
+//                             return arr;
+//                     pun=pun.next;
+//                     pos--;
+//                 }
+            
+//             while(pun!=null)
+//             {
+//                 if(pun.val>res.val){
+//                     max=pun.val;
+//                     break;
+//                 }
+//                 pun=pun.next;
+//             }
+         
+//             if(res.val<max)
+//                 arr[i]=max;
+            
+//             //arr[i]=max;
+//             res=res.next;
+         
+//         }
+        
+        
+        
+//         return arr;
+//     }
