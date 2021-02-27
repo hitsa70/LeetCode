@@ -1,0 +1,50 @@
+/*
+1669. Merge In Between Linked Lists
+Runtime: 1 ms, faster than 100.00% of Java online submissions for Merge In Between Linked Lists.
+Memory Usage: 42.5 MB, less than 95.86% of Java online submissions for Merge In Between Linked Lists.
+
+
+*
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2)
+    {
+        int first =0;
+        ListNode pointer1=list1;
+        ListNode pointer2=list1;
+        
+        
+        while(first<=b)
+        {   pointer1=pointer1.next;
+            first++;
+        }
+        
+        first=0;
+        while(first<a-1)
+        {   pointer2=pointer2.next;
+            first++;
+        }
+        
+        
+        pointer2.next=list2;
+        
+        while(list2.next!=null)
+            list2=list2.next;
+        
+        list2.next=pointer1;
+        
+        return list1;
+        
+        
+        
+    }
+} 
