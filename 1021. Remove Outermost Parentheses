@@ -1,0 +1,30 @@
+//1021. Remove Outermost Parentheses
+//Runtime: 2 ms, faster than 98.93% of Java online submissions for Remove Outermost Parentheses.
+//Memory Usage: 38.9 MB, less than 75.45% of Java online submissions for Remove Outermost Parentheses.
+
+class Solution {
+    public String removeOuterParentheses(String S) {
+    
+       StringBuilder s = new StringBuilder();
+        int opened = 0;
+        for (char c : S.toCharArray()) 
+        {
+            
+            if(c == '(') 
+            {
+                if(opened > 0) 
+                    s.append(c);
+                
+                opened++;
+            } 
+            else {
+                if(opened > 1) 
+                    s.append(c);
+                
+                opened--;
+            }
+            
+        }
+        return s.toString();
+    }
+}
