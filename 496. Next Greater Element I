@@ -1,0 +1,66 @@
+/*Runtime: 4 ms, faster than 55.52% of Java online submissions for Next Greater Element I.
+Memory Usage: 38.9 MB, less than 86.14% of Java online submissions for Next Greater Element I.
+*/
+
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        
+       HashMap<Integer, Integer> next_greatest = new HashMap();
+        Stack<Integer> stack = new Stack() ;
+        
+        for (Integer num : nums2)
+        {
+            while(!stack.isEmpty() && stack.peek() < num)
+            {
+                next_greatest.put(stack.pop(), num);
+            }
+            stack.push(num) ; 
+        }
+         for(int i=0;i<nums1.length;i++)
+         {
+             nums1[i]=next_greatest.getOrDefault(nums1[i],-1);
+         }
+        
+        return nums1;
+    }
+}
+
+
+
+
+/*
+
+Runtime: 18 ms, faster than 5.82% of Java online submissions for Next Greater Element I.
+Memory Usage: 38.7 MB, less than 97.31% of Java online submissions for Next Greater Element I.
+
+ArrayList<Integer> arr=new ArrayList<>();
+        
+        for(int i:nums2)
+            arr.add(i);
+        
+        
+        
+        int[] result=new int[nums1.length];
+        
+        for(int i=0;i<nums1.length;i++)
+        {   int greatest=nums1[i];
+            int index=arr.indexOf(nums1[i]);
+                
+                for(int j=index;j<arr.size();j++)
+                {
+                    if(arr.get(j)>greatest){
+                        greatest=arr.get(j);
+                        result[i]=arr.get(j);
+                    }
+                    if(greatest!=nums1[i])
+                        break;
+                }
+            
+            if(greatest==nums1[i])
+                result[i]=-1;
+         
+        }
+        
+        return result;
+
+*/
