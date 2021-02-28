@@ -1,0 +1,31 @@
+/*
+1047. Remove All Adjacent Duplicates In String
+Runtime: 22 ms, faster than 46.41% of Java online submissions for Remove All Adjacent Duplicates In String.
+Memory Usage: 39.2 MB, less than 91.53% of Java online submissions for Remove All Adjacent Duplicates In String.
+*/
+
+class Solution {
+    public String removeDuplicates(String S) {
+        Stack<Character> stack=new Stack<>();
+        
+        for(char c:S.toCharArray())
+        {
+            if(!stack.empty() && stack.peek()==c )
+                stack.pop();
+            else   
+            stack.push(c);
+                        
+        }
+        StringBuilder s=new StringBuilder();
+         
+        
+        while(!stack.empty())
+        {
+            s.append(stack.pop());
+        }
+        s=s.reverse();
+        
+        return s.toString();
+        
+    }
+}
