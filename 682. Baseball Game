@@ -1,0 +1,45 @@
+/*
+682. Baseball Game
+Runtime: 2 ms, faster than 87.95% of Java online submissions for Baseball Game.
+Memory Usage: 38 MB, less than 93.69% of Java online submissions for Baseball Game.
+*/
+
+
+class Solution {
+    public int calPoints(String[] ops) {
+        Stack<Integer> s = new Stack<>();
+            
+        for(int i=0; i<ops.length; i++){
+          
+            switch(ops[i]){
+                    
+            case "D": 
+                    int l = s.peek();
+                    int d = 2 * l;
+                    s.push(d);
+                    break;
+            case "C":
+                    s.pop();
+                    break;
+            case "+":
+                    int n = s.pop();
+                    int sum = s.peek() + n;
+                    s.push(n);
+                    s.push(sum);
+                    break;
+            default:        
+                   int num = Integer.parseInt(ops[i]);
+                   s.push(num);
+                    break;
+            }
+        }     
+        
+        int total = 0;
+        
+        while(!s.isEmpty()){
+            total += s.pop();
+        }
+        return total;
+        
+    }
+}
