@@ -1,0 +1,22 @@
+// 392. Is Subsequence
+// Runtime: 1 ms, faster than 82.27% of Java online submissions for Is Subsequence.
+// Memory Usage: 36.7 MB, less than 83.35% of Java online submissions for Is Subsequence.
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        if(s.length()==0)
+            return true;
+        
+        
+        int index=0;
+        
+        for(char c :t.toCharArray()){
+            if(c==s.charAt(index))
+                index++;
+            if(index>=s.length())  
+                return true;
+        }
+        
+        return false;
+    }
+}
