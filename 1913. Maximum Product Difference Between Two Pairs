@@ -1,0 +1,26 @@
+Simple intution
+
+Sort array
+starting 2 elements are smallest
+ending 2 are largest
+calculate and return
+
+// Runtime: 6 ms, faster than 83.35% of Java online submissions for Maximum Product Difference Between Two Pairs.
+// Memory Usage: 39.2 MB, less than 72.33% of Java online submissions for Maximum Product Difference Between Two Pairs.
+
+class Solution {
+    public int maxProductDifference(int[] nums) {
+        
+        int length=nums.length;
+        Arrays.sort(nums);
+        return (nums[length-1]*nums[length-2])-(nums[0]*nums[1]);
+    }
+}
+
+Can be optimized by 4 pointer and linear traversal
+
+firstBiggest
+secondBiggest
+firstSmallest
+secondSmallest
+and TC will be O( N ) , space O( 1 )
