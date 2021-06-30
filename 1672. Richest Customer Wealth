@@ -1,0 +1,20 @@
+// 1672. Richest Customer Wealth
+// Runtime: 0 ms, faster than 100.00% of Java online submissions for Richest Customer Wealth.
+// Memory Usage: 38.6 MB, less than 62.79% of Java online submissions for Richest Customer Wealth.
+
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int richestCustomerWealth=0;
+        
+        for(int i=0;i<accounts.length;i++){
+            int customerWealthSum=0;
+                for(int j=0;j<accounts[0].length;j++)
+                    customerWealthSum+=accounts[i][j];
+                    
+            richestCustomerWealth=Math.max(customerWealthSum,richestCustomerWealth);
+        }
+        
+        
+        return richestCustomerWealth;
+    }
+}
