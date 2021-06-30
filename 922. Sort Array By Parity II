@@ -1,0 +1,25 @@
+
+// 922. Sort Array By Parity II
+// Runtime: 2 ms, faster than 99.13% of Java online submissions for Sort Array By Parity II.
+// Memory Usage: 40.3 MB, less than 64.56% of Java online submissions for Sort Array By Parity II.
+
+class Solution {
+    public int[] sortArrayByParityII(int[] nums) {
+        int oddPointer=nums.length-1;
+        
+        for(int i=0;i<nums.length;i+=2){
+            if(nums[i]%2!=0){
+                while(nums[oddPointer]%2!=0)
+                    oddPointer-=2;
+                
+                int temp=nums[oddPointer];
+                nums[oddPointer]=nums[i];
+                nums[i]=temp;
+                
+            }
+        }
+        
+        
+        return nums;
+    }
+}
