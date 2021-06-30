@@ -1,0 +1,16 @@
+// 1720. Decode XORed Array
+// Runtime: 1 ms, faster than 100.00% of Java online submissions for Decode XORed Array.
+// Memory Usage: 40.2 MB, less than 22.94% of Java online submissions for Decode XORed Array.
+
+
+class Solution {
+    public int[] decode(int[] encoded, int first) {
+        int[] result=new int[encoded.length+1];
+        result[0]=first;
+        
+        for(int i=0;i<result.length-1;i++)
+            result[i+1]=result[i]^encoded[i];
+            
+        return result;
+    }
+}
