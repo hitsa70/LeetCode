@@ -1,0 +1,24 @@
+// 205. Isomorphic Strings
+// Runtime: 6 ms, faster than 75.49% of Java online submissions for Isomorphic Strings.
+// Memory Usage: 38.6 MB, less than 96.71% of Java online submissions for Isomorphic Strings.
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length()!=t.length())
+            return false;
+        
+        HashMap<Character,Character> map=new HashMap<>();
+        
+        for(int i=0;i<s.length();i++){
+            if(map.containsKey(s.charAt(i))){
+                if(map.get(s.charAt(i))!=t.charAt(i))
+                    return false;
+            }else if(map.containsValue(t.charAt(i)))
+                return false;
+            else
+                map.put(s.charAt(i),t.charAt(i));
+        }
+        
+        return true;
+    }
+}
