@@ -1,0 +1,60 @@
+// 639. Decode Ways II
+// 37ms
+// 39.7mb
+
+class Solution {
+    public int numDecodings(String s) {
+        long[] dp=new long[s.length()+1];
+        dp[0]=1;
+        dp[1]=decodeOneChar(s.charAt(0));
+        
+        for(int i=2;i<=s.length();i++){
+            
+            dp[i]+=dp[i-1]*decodeOneChar(s.charAt(i-1));
+            dp[i]+=dp[i-2]*decodeTwoChar(s.charAt(i-2),s.charAt(i-1));
+            
+            dp[i]=dp[i]%1000000007;
+        }
+        return (int)dp[s.length()];
+        
+    }
+    
+    public int decodeOneChar(char c){
+        if(c=='*')
+            return 9;
+        else if(c=='0')
+            return 0;
+        
+        return 1;
+    }
+    
+    
+    public int decodeTwoChar(char first,char second){
+        switch(first){
+            case '*' :
+                if(second=='*')
+                    return 15;
+                else if(second>='0' && second<='6')
+                    return 2;
+                else 
+                    return 1;
+                
+            case '1' :
+                if(second=='*')
+                    return 9;
+                else 
+                    return 1;
+                
+            case '2' :
+                if(second=='*')
+                    return 6;
+                else if(second>='0' && second<='6')
+                    return 1;
+                else 
+                    return 0;
+                
+            default:
+                return 0;
+        }
+    }
+}
