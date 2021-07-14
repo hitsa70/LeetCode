@@ -1,0 +1,41 @@
+// 791. Custom Sort String
+// Runtime: 0 ms, faster than 100.00% of Java online submissions for Custom Sort String.
+// Memory Usage: 37.3 MB, less than 58.42% of Java online submissions for Custom Sort String.
+
+class Solution {
+    public String customSortString(String order, String str) {
+        // String result="";
+        StringBuilder sb=new StringBuilder();
+        
+         int [] c = new int[26];
+
+        for(char ch:str.toCharArray())
+        {
+            c[ch-'a']++;
+        }
+
+		for(char ch:order.toCharArray())
+        {
+            int j = c[ch-'a'];
+            while(j-->0)
+            {
+               sb.append(ch);
+            }
+            c[ch-'a']=0;
+        }
+
+        for(int i=0;i<26;i++){
+            if(c[i]>0)
+            {
+                int x = c[i];
+                while(x-->0)
+                {
+                    char ch = (char)(i+'a');
+                    sb.append(ch);
+                }
+            }
+        }
+
+        return sb.toString();
+    }
+}
