@@ -1,0 +1,46 @@
+// 18. 4Sum
+// Runtime: 16 ms, faster than 57.78% of Java online submissions for 4Sum.
+// Memory Usage: 39.3 MB, less than 75.92% of Java online submissions for 4Sum.
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> list =new ArrayList<>();
+        
+        if(nums.length<4)
+            return list;
+        
+        Arrays.sort(nums);
+        
+        for(int i=0;i<nums.length-3;i++)
+            for(int j=i+1;j<nums.length-2;j++){
+                int l=j+1,r=nums.length-1;
+                
+                while(l<r){
+                    int currSum=nums[i]+nums[j]+nums[l]+nums[r];
+                    
+                    if(currSum==target){
+                        List<Integer> arr =new ArrayList<>();
+                        arr.add(nums[i]);
+                        arr.add(nums[j]);
+                        arr.add(nums[l]);
+                        arr.add(nums[r]);
+                            if(!list.contains(arr))
+                                list.add(arr);
+                        while(l<r && nums[l]==nums[l+1])
+                            l++;
+                        while(l<r && nums[r]==nums[r-1])
+                            r--;
+                        
+                        l++;
+                        r--;
+                    }
+                    else if(currSum<target)
+                        l++;
+                    else if(currSum>target)
+                        r--;
+                }
+            }
+        
+        return list;
+    }
+}
