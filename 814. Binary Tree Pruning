@@ -1,0 +1,60 @@
+// 814. Binary Tree Pruning
+// Runtime: 0 ms, faster than 100.00% of Java online submissions for Binary Tree Pruning.
+// Memory Usage: 36.1 MB, less than 97.31% of Java online submissions for Binary Tree Pruning.
+
+
+
+
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode pruneTree(TreeNode root) {
+            
+        helperFunction(root);
+        
+        if(root.val==0 && root.left==null && root.right==null)
+            return null;
+        
+        return root;
+    }
+    
+    public void helperFunction(TreeNode root){
+        
+         if(root.left!=null)
+        helperFunction(root.left);
+        
+        if(root.right!=null)
+        helperFunction(root.right);
+        
+        
+        if(root.left!=null && root.left.val==0){
+            if(root.left.left==null && root.left.right==null){
+                root.left=null;
+            }
+        }
+        if(root.right!=null && root.right.val==0){
+            if(root.right.left==null && root.right.right==null){
+                root.right=null;
+            }
+        }
+        
+        
+       
+    }
+    
+}
